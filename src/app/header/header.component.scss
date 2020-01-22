@@ -1,0 +1,18 @@
+mat-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-weight: 900;
+  span {
+    font-weight: 200;
+  }
+}
+
+.menu {
+  margin-right: 16px;
+}

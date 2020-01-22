@@ -1,0 +1,73 @@
+<div class="search mat-elevation-z2">
+  <form [formGroup]="form">
+    <mat-form-field>
+      <mat-label>地域</mat-label>
+      <mat-select multiple formControlName="places">
+        <mat-option value="リモート">リモート</mat-option>
+        <mat-option value="東京">東京</mat-option>
+        <mat-option value="愛知">愛知</mat-option>
+        <mat-option value="大阪">大阪</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>言語/フレームワーク</mat-label>
+      <mat-select multiple formControlName="skills">
+        <mat-option value="HTML">HTML</mat-option>
+        <mat-option value="CSS">CSS</mat-option>
+        <mat-option value="JavaScript">JavaScript</mat-option>
+        <mat-option value="Angular">Angular</mat-option>
+        <mat-option value="Firebase">Firebase</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>ポジション</mat-label>
+      <mat-select multiple formControlName="types">
+        <mat-option value="マークアップ">マークアップエンジニア</mat-option>
+        <mat-option value="フロントエンド">フロントエンドエンジニア</mat-option>
+        <mat-option value="サーバーサイド">サーバーサイドエンジニア</mat-option>
+        <mat-option value="モバイル">モバイルアプリエンジニア</mat-option>
+        <mat-option value="インフラ">インフラエンジニア</mat-option>
+        <mat-option value="デザイン">デザイン</mat-option>
+        <mat-option value="機械学習">機械学習</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>料金形態</mat-label>
+      <mat-select multiple formControlName="plans">
+        <mat-option value="授業料">授業料</mat-option>
+        <mat-option value="ISA">ISA</mat-option>
+        <mat-option value="SES">SES</mat-option>
+        <mat-option value="無料">無料</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-stroked-button type="button" (click)="form.reset()">
+      クリア
+    </button>
+  </form>
+</div>
+
+<div class="wrap">
+  <div class="list">
+    <a
+      class="item"
+      [routerLink]="[school.id]"
+      routerLinkActive="item--active"
+      *ngFor="let school of schools"
+    >
+      <h3 class="item__title">{{ school.name }}</h3>
+      <p class="item__place">{{ school.places }} / {{ school.plans }}</p>
+    </a>
+  </div>
+  <div class="main">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<a
+  href="https://github.com/deerboy/school-scout/edit/master/src/app/models/schools.ts"
+  target="_blank"
+  class="edit"
+  mat-fab
+>
+  <mat-icon class="mat-18">add</mat-icon>
+</a>

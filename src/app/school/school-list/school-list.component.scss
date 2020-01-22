@@ -1,0 +1,66 @@
+:host {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+.wrap {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  flex: 1;
+  overflow: hidden;
+}
+
+.list {
+  overflow: auto;
+  border-right: 1px solid rgba(black, 0.12);
+}
+
+.main {
+  padding: 16px;
+  overflow: auto;
+}
+
+.item {
+  padding: 16px;
+  border-bottom: 1px solid rgba(black, 0.12);
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  &--active {
+    background: #fff;
+  }
+  &:active {
+    outline: none;
+  }
+  &__title {
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0 0 8px;
+  }
+  &__place {
+    margin: 0;
+    color: rgba(black, 0.6);
+    font-size: 12px;
+  }
+}
+
+.search {
+  padding: 8px 24px;
+  background: #fff;
+  position: relative;
+  z-index: 5;
+  mat-form-field {
+    margin-right: 24px;
+  }
+}
+
+.rule {
+  padding: 16px 0;
+}
+
+.edit {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+}

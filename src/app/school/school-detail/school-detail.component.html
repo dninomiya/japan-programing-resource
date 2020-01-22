@@ -1,0 +1,68 @@
+<mat-card *ngIf="school$ | async as school">
+  <div class="header">
+    <div>
+      <h1 class="header__title">{{ school.name }}</h1>
+      <p class="header__sub">{{ school.places }}</p>
+    </div>
+    <div class="header__body">
+      <!-- <p>最終更新日: {{ '' | date: 'yyyy年MM月dd日 HH:mm' }}</p> -->
+      <button mat-icon-button [matMenuTriggerFor]="menuRef">
+        <mat-icon class="mat-18">more_vert</mat-icon>
+      </button>
+
+      <mat-menu #menuRef="matMenu">
+        <a
+          href="https://github.com/deerboy/japan-programing-resource/edit/master/src/app/models/schools.ts"
+          target="_blank"
+          mat-menu-item
+        >
+          <mat-icon class="mat-18">edit</mat-icon>
+          <span>編集</span>
+        </a>
+        <a
+          href="https://github.com/deerboy/japan-programing-resource/issues/new?assignees=deerboy&labels=%E5%A0%B1%E5%91%8A&template=----------.md&title=「{{
+            school.name
+          }}」の情報について"
+          target="_blank"
+          mat-menu-item
+        >
+          <mat-icon class="mat-18">flag</mat-icon>
+          <span>報告</span>
+        </a>
+      </mat-menu>
+    </div>
+  </div>
+  <mat-divider inset></mat-divider>
+  <div class="action">
+    <a mat-flat-button color="primary" [href]="school.url" target="_blank"
+      >公式サイト</a
+    >
+  </div>
+  <mat-divider inset></mat-divider>
+
+  <ul class="tags">
+    <li class="tags__tag" *ngFor="let type of school.types">{{ type }}</li>
+    <li class="tags__tag" *ngFor="let plan of school.plans">{{ plan }}</li>
+  </ul>
+
+  <p>{{ school.description }}</p>
+  <h2>学習場所</h2>
+  <p>リモート</p>
+  <h2>タイプ</h2>
+  <p>フロントエンドエンジニア</p>
+  <h2>身に付くスキル</h2>
+  <ul class="skills">
+    <li *ngFor="let skill of school.skills">{{ skill }}</li>
+  </ul>
+  <h2>料金モデル</h2>
+  <ul class="skills">
+    <li *ngFor="let plan of school.plans">{{ plan }}</li>
+  </ul>
+  <h2>運営会社</h2>
+  <p>
+    <a [href]="school.host.url" target="_blank"
+      >{{ school.host.name }}
+      <mat-icon class="mat-18" inline>open_in_new</mat-icon></a
+    >
+  </p>
+</mat-card>
