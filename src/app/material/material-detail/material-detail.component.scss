@@ -1,0 +1,64 @@
+mat-card {
+  padding: 40px;
+}
+
+.skills {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  li {
+    display: inline-block;
+    margin-right: 16px;
+  }
+}
+
+.header {
+  padding-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  p {
+    margin: 0 16px 0 0;
+    color: rgba(black, 0.6);
+  }
+  &__title {
+    margin: 0 0 8px;
+  }
+  &__body {
+    display: flex;
+    align-items: center;
+  }
+}
+
+h2 {
+  margin-top: 40px;
+}
+
+.action {
+  margin: 24px 0;
+}
+
+.tags {
+  margin: 24px 0;
+  display: block;
+  list-style: none;
+  padding: 0;
+  &__tag {
+    display: inline-block;
+    margin-right: 8px;
+    padding: 0 12px;
+    line-height: 1;
+    line-height: 32px;
+    border-radius: 16px;
+    color: rgba(black, 0.38);
+    display: inline-flex;
+    vertical-align: middle;
+    align-items: center;
+    border: 1px solid rgba(black, 0.12);
+    mat-icon {
+      font-size: 18px;
+      margin-right: 4px;
+      color: rgba(black, 0.38);
+    }
+  }
+}

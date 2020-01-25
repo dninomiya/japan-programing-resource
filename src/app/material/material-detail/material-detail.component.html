@@ -1,0 +1,48 @@
+<mat-card *ngIf="material$ | async as material">
+  <div class="header">
+    <div>
+      <h1 class="header__title">{{ material.name }}</h1>
+      <p class="header__sub">{{ material.types }}</p>
+    </div>
+    <div class="header__body">
+      <!-- <p>最終更新日: {{ '' | date: 'yyyy年MM月dd日 HH:mm' }}</p> -->
+      <button mat-icon-button [matMenuTriggerFor]="menuRef">
+        <mat-icon class="mat-18">more_vert</mat-icon>
+      </button>
+
+      <mat-menu #menuRef="matMenu">
+        <a
+          href="https://github.com/deerboy/japan-programing-resource/edit/master/src/app/models/materials.ts"
+          target="_blank"
+          mat-menu-item
+        >
+          <mat-icon class="mat-18">edit</mat-icon>
+          <span>編集</span>
+        </a>
+        <a
+          href="https://github.com/deerboy/japan-programing-resource/issues/new?assignees=deerboy&labels=%E5%A0%B1%E5%91%8A&template=----------.md&title=「{{
+            material.name
+          }}」の情報について"
+          target="_blank"
+          mat-menu-item
+        >
+          <mat-icon class="mat-18">flag</mat-icon>
+          <span>報告</span>
+        </a>
+      </mat-menu>
+    </div>
+  </div>
+  <mat-divider inset></mat-divider>
+  <div class="action">
+    <a mat-flat-button color="primary" [href]="material.url" target="_blank"
+      >公式サイト</a
+    >
+  </div>
+  <mat-divider inset></mat-divider>
+
+  <ul class="tags">
+    <li class="tags__tag" *ngFor="let type of material.types">{{ type }}</li>
+  </ul>
+
+  <p>{{ material.description }}</p>
+</mat-card>

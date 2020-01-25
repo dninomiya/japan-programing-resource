@@ -1,30 +1,27 @@
-import { SchoolFilter } from './../interfaces/school';
-import { SCHOOLS } from './../models/schools';
+import { MATERIALS } from './../models/materials';
+import { Material, MaterialFilter } from './../interfaces/material';
 import { Injectable } from '@angular/core';
-import { School } from '../interfaces/school';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SchoolService {
+export class MaterialService {
 
-  constructor() { }
-
-  getSchools(filter?: SchoolFilter): School[] {
+  getMaterials(filter?: MaterialFilter): Material[] {
     if (filter) {
-      return SCHOOLS.filter(school => {
+      return MATERIALS.filter(school => {
         const noMatch = Object.keys(filter).some(key => {
           return !this.filter(filter[key], school[key]);
         });
         return !noMatch;
       });
     } else {
-      return SCHOOLS;
+      return MATERIALS;
     }
   }
 
-  getSchool(id: string): School {
-    return SCHOOLS.find(school => school.id === id);
+  getMaterial(id: string): Material {
+    return MATERIALS.find(school => school.id === id);
   }
 
   private filter(filterArray: [], targetArray: []): boolean {

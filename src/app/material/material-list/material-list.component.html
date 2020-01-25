@@ -1,0 +1,49 @@
+<div class="search mat-elevation-z2">
+  <form [formGroup]="form">
+    <mat-form-field>
+      <mat-label>タイプ</mat-label>
+      <mat-select multiple formControlName="types">
+        <mat-option value="アイコン">アイコン</mat-option>
+        <mat-option value="フォント">フォント</mat-option>
+        <mat-option value="写真">写真</mat-option>
+        <mat-option value="イラスト">イラスト</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>ライセンス</mat-label>
+      <mat-select multiple formControlName="licences">
+        <mat-option value="著作権表記不要">著作権表記不要</mat-option>
+        <mat-option value="著作権表記必要">著作権表記必要</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-stroked-button type="button" (click)="form.reset()">
+      クリア
+    </button>
+  </form>
+</div>
+
+<div class="wrap">
+  <div class="list">
+    <a
+      class="item"
+      [routerLink]="[material.id]"
+      routerLinkActive="item--active"
+      *ngFor="let material of materials"
+    >
+      <h3 class="item__title">{{ material.name }}</h3>
+      <p class="item__place">{{ material.types }}</p>
+    </a>
+  </div>
+  <div class="main">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<a
+  href="https://github.com/deerboy/school-scout/edit/master/src/app/models/schools.ts"
+  target="_blank"
+  class="edit"
+  mat-fab
+>
+  <mat-icon class="mat-18">add</mat-icon>
+</a>
