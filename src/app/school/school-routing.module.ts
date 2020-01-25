@@ -1,3 +1,4 @@
+import { RootGuard } from './root.guard';
 import { SchoolDetailComponent } from './school-detail/school-detail.component';
 import { SchoolListComponent } from './school-list/school-list.component';
 import { NgModule } from '@angular/core';
@@ -8,10 +9,17 @@ const routes: Routes = [
   {
     path: '',
     component: SchoolListComponent,
-    children: [{
-      path: ':id',
-      component: SchoolDetailComponent
-    }]
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        canActivate: [RootGuard]
+      },
+      {
+        path: ':id',
+        component: SchoolDetailComponent
+      }
+    ]
   },
 ];
 

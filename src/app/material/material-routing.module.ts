@@ -2,6 +2,7 @@ import { MaterialDetailComponent } from './material-detail/material-detail.compo
 import { MaterialListComponent } from './material-list/material-list.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { RootGuard } from './root.guard';
 
 
 const routes: Routes = [
@@ -9,6 +10,11 @@ const routes: Routes = [
     path: '',
     component: MaterialListComponent,
     children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        canActivate: [RootGuard]
+      },
       {
         path: ':id',
         component: MaterialDetailComponent
