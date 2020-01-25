@@ -16,7 +16,12 @@
         <mat-option value="著作権表記必要">著作権表記必要</mat-option>
       </mat-select>
     </mat-form-field>
-    <button mat-stroked-button type="button" (click)="form.reset()">
+    <button
+      mat-stroked-button
+      type="button"
+      (click)="form.reset()"
+      [disabled]="form.pristine"
+    >
       クリア
     </button>
   </form>

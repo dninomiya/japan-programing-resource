@@ -18,7 +18,8 @@ export class SchoolDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private schoolService: SchoolService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
   }
